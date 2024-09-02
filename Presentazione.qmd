@@ -1,0 +1,151 @@
+---
+title: "Analisi testuale delle normative"
+author: "Morone Renato, Scognamiglio Nicola, Todini Stefano"
+format:
+  html: 
+    theme: default
+    toc: true
+    toc-title: INDICE
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+knitr::read_chunk("pre-analisi.R")
+```
+
+```{r carico-le-librerie}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r importazione}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+## Introduzione
+
+Nel 1866, il Regno d'Italia affrontò una difficile e dispendiosa guerra contro l'Austria, nota come la terza guerra d'indipendenza, durante questo periodo, furono promulgate diverse normative che hanno contribuito a definire l'ordinamento giuridico del Regno d'Italia, esse rappresentano l'insieme delle norme che regolano una determinata materia o presiedono alla disciplina di un istituto o di un ordinamento giuridico
+
+------------------------------------------------------------------------
+
+### Errori ortografici
+
+Controlliamo gli errori ortografici con il package `hunspell`.
+
+```{r correzione-ortografia}
+#| echo: FALSE
+#| warning: false
+```
+
+------------------------------------------------------------------------
+
+### Sostituiamo gli apostrofi
+
+Vediamo che la maggior parte delle parole sbagliate manca di accento oppure sono preposizioni articolate senza l'ultima lettera.
+
+```{r sostituzione-apostrofi}
+#| echo: true
+#| warning: TRUE
+
+```
+
+Sostituiamo quindi gli apostrofi con dei "blanks" tramite `mutate` di `tidyverse`.
+
+## Il package `quanteda` per il corpus
+
+```{r corpus}
+#| echo: true
+#| warning: true
+```
+
+------------------------------------------------------------------------
+
+### Tokenizzazione
+
+```{r parsing}
+#| echo: false
+#| warning: false
+
+```
+
+```{r tokenizzazione-con-quanteda}
+#| echo: true
+#| warning: false
+
+```
+
+------------------------------------------------------------------------
+
+### Togliamo le stopwords
+
+```{r stopwords}
+#| echo: true
+
+```
+
+```{r stopwords2}
+#| echo: true
+```
+
+Sottraiamo il totale dei token del corpus precedente a quello attuale:
+
+```{r sottrazione}
+#| echo: true
+#| warning: true
+```
+
+------------------------------------------------------------------------
+
+### Document-feature matrix
+
+```{r dfm}
+
+```
+
+------------------------------------------------------------------------
+
+### Vocabolario
+
+```{r vocabolario}
+
+```
+
+------------------------------------------------------------------------
+
+### Feature Co-occurrence matrix
+
+```{r fcm}
+
+```
+
+------------------------------------------------------------------------
+
+### Grafico Tokens-Types
+
+```{r grafico-tokens-types}
+
+```
+
+------------------------------------------------------------------------
+
+### Barplot
+
+```{r barplot}
+
+```
+
+------------------------------------------------------------------------
+
+### Wordcloud
+
+```{r wordcloud}
+
+```
+
+### ANALISI DELLE CORRISPONDENZE
+```{r ANALISI DELLE CORRISPONDENZE}
+
+```
+
