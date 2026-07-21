@@ -1,68 +1,68 @@
-﻿# Le parole dell'economia di guerra
+﻿# The Language of the War Economy
 
-Analisi di text mining sulle normative italiane relative ai prestiti ai cittadini durante e dopo la Terza Guerra d'Indipendenza, con un corpus di decreti e atti emanati tra il 1866 e il 1872.
+This project applies text mining techniques to Italian legal texts about loans to citizens during and after the Third War of Independence. The corpus includes decrees and legal acts issued between 1866 and 1872.
 
-Il progetto studia come il linguaggio amministrativo e finanziario del nuovo Regno d'Italia racconti le strategie usate per sostenere le spese pubbliche e militari: prestiti nazionali, obbligazioni, imposte, riscossioni e rapporti con la Banca Nazionale del Regno d'Italia.
+The analysis explores how the administrative and financial language of the newly unified Kingdom of Italy reflected the strategies used to fund public and military expenditure: national loans, bonds, taxation, revenue collection, and the role of the National Bank of the Kingdom of Italy.
 
-## Obiettivo
+## Objective
 
-L'analisi mette in evidenza i termini piu ricorrenti, le relazioni tra parole e documenti, e i temi principali che emergono dai testi normativi. Il focus non e soltanto quantitativo: i risultati vengono letti in relazione al contesto storico della costruzione finanziaria dello Stato italiano post-unitario.
+The goal is to identify the most frequent terms, the relationships between words and documents, and the main topics emerging from the legal corpus. The project combines quantitative text analysis with historical interpretation, linking linguistic patterns to the financial construction of post-unification Italy.
 
 ## Corpus
 
-Il corpus e composto da 11 documenti normativi in formato RTF, raccolti nella cartella `data/1866-72`. I testi riguardano principalmente decreti regi e ministeriali relativi a prestiti, rendite, imposte, riscossioni e strumenti finanziari.
+The corpus consists of 11 legal documents in RTF format, stored in `data/1866-72`. The documents mainly include royal and ministerial decrees related to loans, government bonds, taxation, revenue collection, and public finance instruments.
 
-## Metodo
+## Method
 
-La pipeline di analisi e implementata in R:
+The analysis pipeline is implemented in R:
 
-1. importazione dei documenti con `readtext`;
-2. lemmatizzazione dei testi in italiano con TreeTagger;
-3. controllo ortografico con `hunspell`;
-4. costruzione del corpus con `quanteda`;
-5. tokenizzazione e rimozione di punteggiatura, numeri, simboli e stopwords;
-6. costruzione della document-feature matrix;
-7. analisi di frequenza, co-occorrenze, wordcloud, analisi delle corrispondenze e topic modeling.
+1. importing the documents with `readtext`;
+2. lemmatizing the Italian texts with TreeTagger;
+3. checking spelling consistency with `hunspell`;
+4. building the corpus with `quanteda`;
+5. tokenizing the texts and removing punctuation, numbers, symbols, and stopwords;
+6. creating a document-feature matrix;
+7. producing frequency analysis, co-occurrence analysis, wordclouds, correspondence analysis, and topic modeling.
 
-## Risultati principali
+## Main Results
 
-### Vocabolario piu frequente
+### Most Frequent Vocabulary
 
-I lemmi piu ricorrenti mostrano subito il lessico centrale del corpus: `prestito`, `decreto`, `comune`, `lira`, `titolo`, `rendita`, `banca` e altri termini legati al debito pubblico e alla gestione amministrativa.
+The most frequent lemmas reveal the central vocabulary of the corpus: `prestito` (loan), `decreto` (decree), `comune` (municipality), `lira`, `titolo` (security/bond), `rendita` (annuity/government bond), `banca` (bank), and other terms connected to public debt and administrative management.
 
-![Barplot del vocabolario](assets/vocabulary-barplot.png)
+![Vocabulary barplot](assets/vocabulary-barplot.png)
 
 ### Wordcloud
 
-La wordcloud sintetizza visivamente il peso dei termini principali. La centralita di parole come `prestito`, `decreto` e `comune` conferma la natura finanziaria e amministrativa del corpus.
+The wordcloud provides a visual summary of the most prominent terms. The centrality of words such as `prestito`, `decreto`, and `comune` confirms the financial and administrative nature of the corpus.
 
-![Wordcloud del corpus](assets/wordcloud.png)
+![Corpus wordcloud](assets/wordcloud.png)
 
-### Rete di co-occorrenza
+### Co-occurrence Network
 
-La rete evidenzia le relazioni tra i lemmi piu frequenti. I collegamenti aiutano a osservare quali concetti compaiono insieme nei decreti, per esempio termini relativi a imposte, rendite, ruoli, riscossioni e istituti bancari.
+The co-occurrence network highlights relationships among the most frequent lemmas. These links help show which concepts appear together in the decrees, such as taxation, bonds, public offices, revenue collection, and banking institutions.
 
-![Rete di co-occorrenza](assets/cooccurrence-network.png)
+![Co-occurrence network](assets/cooccurrence-network.png)
 
-### Analisi delle corrispondenze
+### Correspondence Analysis
 
-L'analisi delle corrispondenze permette di confrontare i documenti in base al lessico utilizzato. I decreti del 1866-1867 e quelli del 1872 mostrano differenze tematiche: i primi sono piu legati alla richiesta di prestito nazionale e alla ripartizione fiscale, mentre i testi del 1872 si concentrano maggiormente su banca, cartelle, rendita e debito pubblico.
+Correspondence analysis compares the documents according to their vocabulary. The decrees from 1866-1867 and those from 1872 show thematic differences: the earlier texts are more closely connected to the national loan and fiscal allocation, while the 1872 documents focus more on banks, bond certificates, annuities, and public debt.
 
-![Analisi delle corrispondenze](assets/correspondence-analysis.png)
+![Correspondence analysis](assets/correspondence-analysis.png)
 
-### Topic modeling
+### Topic Modeling
 
-Il topic modeling individua quattro gruppi lessicali principali. I primi topic sono associati ai decreti del 1866 sui prestiti, sulle imposte e sulla riscossione; il quarto e piu vicino al decreto ministeriale del 1872, con termini come `banca`, `cartella`, `rendita`, `consolidato` e `portatore`.
+Topic modeling identifies four main lexical groups. The first topics are associated with the 1866 decrees on loans, taxation, and collection procedures; the fourth topic is closer to the 1872 ministerial decree, with terms such as `banca` (bank), `cartella` (bond certificate), `rendita` (annuity), `consolidato` (consolidated debt), and `portatore` (bearer).
 
 ![Topic modeling](assets/topic-modeling.png)
 
-## File principali
+## Main Files
 
-- `pre-analisi.R`: script principale con importazione, preprocessing, analisi e grafici.
-- `ca3d.R`: analisi delle corrispondenze e visualizzazione 3D.
-- `Report.qmd`: report Quarto dell'analisi.
-- `data/1866-72`: corpus dei documenti normativi.
+- `pre-analisi.R`: main script for importing, preprocessing, analyzing, and visualizing the corpus.
+- `ca3d.R`: correspondence analysis and 3D visualization.
+- `Report.qmd`: Quarto report of the analysis.
+- `data/1866-72`: corpus of legal documents.
 
-## Nota sui materiali di presentazione
+## Presentation Materials
 
-Il file PowerPoint locale `Presentazione.pptx` non viene pubblicato su GitHub. I contenuti essenziali della presentazione sono invece riassunti in questo README, insieme ai grafici esportati nella cartella `assets`.
+The local PowerPoint file `Presentazione.pptx` is not published on GitHub. The essential content of the presentation is summarized in this README, together with the exported charts stored in `assets`.
